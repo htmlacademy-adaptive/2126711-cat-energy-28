@@ -1,40 +1,53 @@
 .slider {
   position: relative;
   width: 280px;
-  min-height: 256px;
+  height: 256px;
+
+  @media (min-width: @tablet-width) {
+    width: 560px;
+    height: 512px;
+  }
 }
 
 .slider__view {
   position: absolute;
   top: 0;
   left: 0;
-  overflow: hidden;
+  background-color: #eaeaea;
 }
 
 .slider__view img {
-  min-width: 280px;
-  max-width: 640px;
+  height: 100%;
+  overflow: hidden;
 }
 
 .slider__view--before {
-  z-index: 10;
+  width: 50%;
+  z-index: 2;
+  overflow: hidden;
 }
 
 .slider__view--after {
-  width: 130px;
-  z-index: 20;
+  z-index: 1;
+  overflow: hidden;
 }
 
 .slider__dragme {
   position: absolute;
   width: 4px;
-  height: 256px;
+  height: 100%;
   top: 0;
-  left: 130px;
+  left: 138px;
   background-color: #666666;
   border-radius: 2px;
   cursor: pointer;
   z-index: 30;
+  display: block;
+  pointer-events: auto;
+
+  @media (min-width: @tablet-width) {
+    left: 278px;
+  }
 
   &:hover {
     background-color: #68b738;
@@ -51,7 +64,7 @@
   justify-content: center;
   position: absolute;
   top: calc(50% - 20px);
-  left: -20px;
+  left: -18px;
   border-radius: 100%;
   width: 40px;
   height: 40px;

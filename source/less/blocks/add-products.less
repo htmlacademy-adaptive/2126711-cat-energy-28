@@ -1,9 +1,9 @@
 .add-products__wrapper {
   .container();
+  width: 100%;
 
   @media (min-width: @desktop-width) {
     display: flex;
-    flex-wrap: wrap;
   }
 }
 
@@ -19,6 +19,10 @@
     font-size: 36px;
     line-height: 36px;
     margin-bottom: 80px;
+  }
+
+  @media (min-width: @desktop-width) {
+    margin-bottom: 81px;
   }
 }
 
@@ -45,7 +49,7 @@
   @media (min-width: @tablet-width) {
     padding: 0 38px;
     width: 600px;
-    margin-left: 5%;
+    margin-left: 2%;
   }
 
   @media (min-width: @desktop-width) {
@@ -60,10 +64,11 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-
+  width: 100%;
 
   @media (min-width: @tablet-width) {
     border: solid 1px #cdcdcd;
+    width: 100%;
   }
 
   @media (min-width: @desktop-width) {
@@ -74,7 +79,7 @@
 
 .add-products__item {
   border-bottom: solid 1px #cdcdcd;
-  border-top: solid 1px #cdcdcd;
+  width: 100%;
 
   @media (min-width: @tablet-width) {
     padding: 0 38px;
@@ -87,27 +92,32 @@
   }
 }
 
-.add-products__button {
-  .button();
-  font-size: 16px;
-  line-height: 20px;
-  padding: 10px 109px;
-  margin-bottom: 20px;
-  display: block;
+.add-products__item:first-child {
+  border-top: solid 1px #cdcdcd;
 
   @media (min-width: @tablet-width) {
-    width: 100%;
+    border-top: none;
   }
 
   @media (min-width: @desktop-width) {
-    width: auto;
-    margin-top: 15px;
+    border-top: solid 1px #cdcdcd;
+  }
+}
+
+.add-products__item:last-child {
+  @media (min-width: @tablet-width) {
+    border-bottom: none;
+  }
+
+  @media (min-width: @desktop-width) {
+    border-bottom: solid 1px #cdcdcd;
   }
 }
 
 .add-products__item-title {
   margin: 0;
-  padding: 13px 0;
+  padding-top: 13px;
+  margin-bottom: 13px;
   font-size: 16px;
   line-height: 16px;
   text-transform: uppercase;
@@ -117,7 +127,28 @@
   @media (min-width: @tablet-width) {
     font-size: 20px;
     line-height: 20px;
-    padding: 26px 0;
+    padding-top: 26px;
+    margin-bottom: 25px;
+  }
+
+  @media (min-width: @desktop-width) {
+    padding-top: 24px;
+    margin-bottom: 0;
+  }
+}
+
+.add-products__item-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+
+  @media (min-width: @tablet-width) {
+    margin-left: auto;
+  }
+
+  @media (min-width: @desktop-width) {
+    width: 285px;
+    margin-right: 40px;
   }
 }
 
@@ -127,49 +158,102 @@
   font-size: 14px;
   line-height: 14px;
   margin: 0;
+  padding: 0;
 
   @media (min-width: @tablet-width) {
     font-size: 16px;
     line-height: 20px;
-    padding: 26px 0;
+    padding-top: 26px;
+    margin-left: 49px;
   }
 
   @media (min-width: @desktop-width) {
-    margin-left: auto;
+    margin-left: 0;
+  }
+}
+
+.add-products__button {
+  .button();
+  font-size: 16px;
+  line-height: 20px;
+  padding: 10px 109px;
+  margin-bottom: 19px;
+  display: block;
+  width: 100%;
+
+  @media (min-width: @tablet-width) {
+    margin-bottom: 28px;
+  }
+
+  @media (min-width: @desktop-width) {
+    width: auto;
+    margin-top: 15px;
+    margin-bottom: 17px;
   }
 }
 
 .add-products__present {
   margin-top: 35px;
-  width: 280px;
-  height: 290px;
-  background: rgba(104, 183, 56, 0.85) url("../img/present-background.jpg") no-repeat center;
-  .zero-centered();
+  min-width: 280px;
+  min-height: 289px;
+  background-image: image-set(
+    url("../img/present-background.webp") 1x,
+    url("../img/present-background.jpg") 1x
+  );
+  background-color: rgba(104, 183, 56, 0.85);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
 
   @media (min-resolution: 2dppx) {
-    background-image: url("../img/present-background@2x.jpg");
+    background-image: image-set(
+      url("../img/present-background@2x.webp") 2x,
+      url("../img/present-background@2x.jpg") 2x
+    );
+    background-size: cover;
   }
 
   @media (min-width: @tablet-width) {
-    background: rgba(104, 183, 56, 0.85) url("../img/present-background-2.jpg") no-repeat center;
-    width: 707px;
-    height: 200px;
+    background-image: image-set(
+      url("../img/present-background-tablet.webp") 1x,
+      url("../img/present-background-tablet.jpg") 1x
+    );
+    background-color: rgba(104, 183, 56, 0.85);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 707px;
+    min-height: 200px;
 
     @media (min-resolution: 2dppx) {
-      background-image: url("../img/present-background-2@2x.jpg");
+      background-image: image-set(
+        url("../img/present-background-tablet@2x.webp") 2x,
+        url("../img/present-background-tablet@2x.jpg") 2x
+      );
+      background-size: cover;
     }
   }
 
   @media (min-width: @desktop-width) {
-    background: rgba(104, 183, 56, 0.85) url("../img/present-background.jpg") no-repeat center;
+    background-image: image-set(
+      url("../img/present-background.webp") 1x,
+      url("../img/present-background.jpg") 1x
+    );
+    background-color: rgba(104, 183, 56, 0.85);
+    background-position: center;
+    background-repeat: no-repeat;
     width: 245px;
+    min-width: 0;
     height: 288px;
     margin-top: 0;
     margin-left: auto;
 
     @media (min-resolution: 2dppx) {
-      background-image: url("../img/present-background@2x.jpg");
+      background-image: image-set(
+        url("../img/present-background@2x.webp") 2x,
+        url("../img/present-background@2x.jpg") 2x
+      );
     }
   }
 }
@@ -220,7 +304,7 @@
     position: absolute;
     width: 161px;
     padding: 0;
-    right: 60px;
+    right: 13%;
     top: 60px;
     text-align: left;
   }

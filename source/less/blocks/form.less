@@ -1,23 +1,51 @@
 .form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__fieldset-wrapper {
+  .form-container();
+  width: 100%;
+  padding-bottom: 26px;
   display: grid;
   grid-template-columns: 1fr;
+  gap: 20px;
+
+  @media (min-width: @tablet-width) {
+    padding-bottom: 75px;
+    gap: 72px;
+  }
+
+  @media (min-width: @desktop-width) {
+    padding-bottom: 69px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px;
+  }
 }
 
 .form__fieldset {
+  min-width: 0;
+  width: 100%;
   margin: 0;
 }
 
 .form__button-wrapper {
-  padding: 20px 0;
+  .form-container();
   display: flex;
   flex-direction: column;
   justify-content: center;
-  .form-container();
+  padding-bottom: 32px;
+  width: 100%;
 
   @media (min-width: @tablet-width) {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    padding-bottom: 72px;
+  }
+
+  @media (min-width: @desktop-width) {
+    padding-bottom: 82px;
   }
 }
 
@@ -26,17 +54,20 @@
   border: none;
   padding: 7px 60px;
   margin-bottom: 20px;
-  margin-right: 60px;
-  min-width: 280px;
+  width: 100%;
 
   @media (min-width: @tablet-width) {
     font-size: 20px;
     padding: 13px 45px;
     margin-bottom: 0;
+    margin-right: 64px;
+    width: 280px;
   }
 
   @media (min-width: @desktop-width) {
     padding: 13px 188px;
+    margin-right: 84px;
+    width: 568px;
   }
 }
 
@@ -50,16 +81,5 @@
 
   @media (min-width: @tablet-width) {
     font-size: 16px;
-  }
-}
-
-.form__fieldset-wrapper {
-  .form-container();
-  width: 100%;
-
-  @media (min-width: @desktop-width) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 80px;
   }
 }
