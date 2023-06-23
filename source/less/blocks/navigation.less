@@ -1,8 +1,15 @@
 .navigation {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
+
+  @media (min-width: @tablet-width) {
+    max-width: 70%;
+  }
+
+  @media (min-width: @desktop-width) {
+    max-width: 45%;
+  }
 }
 
 .navigation__list {
@@ -10,7 +17,7 @@
   position: absolute;
   padding: 0;
   margin: 0;
-  top: 66px;
+  top: 65px;
   right: 0;
   z-index: 10;
   width: 100%;
@@ -18,7 +25,13 @@
   @media (min-width: @tablet-width) {
     position: static;
     margin-left: auto;
-    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 36px;
+  }
+
+  @media (min-width: @desktop-width) {
+    gap: 10px 35px;
   }
 }
 
@@ -32,10 +45,6 @@
   @media (min-width: @tablet-width) {
     border: none;
   }
-
-  @media (min-width: @desktop-width) {
-    border: none;
-  }
 }
 
 .navigation__item:first-child {
@@ -47,12 +56,12 @@
 }
 
 .navigation__link {
-  padding: 22px 40px;
+  padding: 22px 38px 23px 36px;
   width: 100%;
   display: block;
   font-family: inherit;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 21px;
   line-height: 20px;
   text-transform: uppercase;
   color: #000000;
@@ -61,14 +70,14 @@
 
   @media (min-width: @tablet-width) {
     min-width: 64px;
-    padding: 17px 11px 10px;
+    padding: 10px 0;
     font-size: 18px;
     line-height: 24px;
     font-weight: 400;
   }
 
   @media (min-width: @desktop-width) {
-    padding: 17px 6px 10px;
+    padding: 3px 0 7px;
     font-size: 20px;
     line-height: 30px;
   }
@@ -94,16 +103,12 @@
     content: "";
     position: absolute;
     height: 2px;
-    width: calc(100% - 22px);
+    width: 100%;
     background-color: #68b738;
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
     z-index: 1;
-  }
-
-  @media (min-width: @desktop-width) {
-    width: calc(100% - 12px);
   }
 }
 
@@ -119,12 +124,25 @@
   }
 }
 
+.navigation__list--secondary .navigation__link:hover,
+.navigation__list--secondary .navigation__link:focus {
+  @media (min-width: @desktop-width) {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+.navigation__list--secondary .navigation__link:active {
+  @media (min-width: @desktop-width) {
+    color: rgba(255, 255, 255, 0.3);
+  }
+}
+
 .navigation__list--secondary .navigation__link--current::after {
   @media (min-width: @desktop-width) {
     content: "";
     position: absolute;
     height: 2px;
-    width: calc(100% - 12px);
+    width: 100%;
     background-color: #ffffff;
     left: 50%;
     bottom: 0;
@@ -133,11 +151,11 @@
   }
 }
 
-.navigation--opened .navigation__list {
+.navigation--opened {
   display: block;
 }
 
-.navigation--closed .navigation__list {
+.navigation--closed {
   display: none;
 
   @media (min-width: @tablet-width) {

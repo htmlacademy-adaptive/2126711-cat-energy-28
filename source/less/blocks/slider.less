@@ -2,23 +2,30 @@
   position: relative;
   width: 280px;
   height: 256px;
+  margin: 0 auto;
 
   @media (min-width: @tablet-width) {
     width: 560px;
     height: 512px;
+  }
+
+  @media (min-width: @desktop-width) {
+    margin-left: 50px;
   }
 }
 
 .slider__view {
   position: absolute;
   top: 0;
-  left: 0;
-  background-color: #eaeaea;
 }
 
 .slider__view img {
-  height: 100%;
   overflow: hidden;
+
+  @media (min-width: @tablet-width) {
+    width: auto;
+    height: auto;
+  }
 }
 
 .slider__view--before {
@@ -30,6 +37,10 @@
 .slider__view--after {
   z-index: 1;
   overflow: hidden;
+  width: 50%;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .slider__dragme {
@@ -50,6 +61,10 @@
   }
 
   &:hover {
+    background-color: #68b738;
+  }
+
+  &:focus-within {
     background-color: #68b738;
   }
 
@@ -75,13 +90,22 @@
   cursor: pointer;
   z-index: 30;
 
-  &:hover {
+  &:focus {
     color: #68b738;
     border: solid 2px #68b738;
   }
+}
 
-  &:active {
-    color: #5eaa2f;
-    border: solid 2px #5eaa2f;
-  }
+.slider__dragme:hover .slider__dragme-circle {
+  color: #68b738;
+  border: solid 2px #68b738;
+}
+
+.slider__dragme:active .slider__dragme-circle {
+  color: #5eaa2f;
+  border: solid 2px #5eaa2f;
+}
+
+.slider__dragme:focus + .slider__dragme-circle {
+  background-color: #68b738;
 }

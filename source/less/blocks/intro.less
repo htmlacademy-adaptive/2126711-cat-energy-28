@@ -1,5 +1,9 @@
 .intro {
   position: relative;
+
+  @media (min-width: @desktop-width) {
+    position: inherit;
+  }
 }
 
 .intro__background-wrapper {
@@ -38,7 +42,7 @@
     background-size: cover;
     height: 694px;
     right: 0;
-    top: -117px;
+    top: 0;
     width: 50%;
 
     @media (min-resolution: 2dppx) {
@@ -75,7 +79,7 @@
   width: 100%;
 
   @media (min-width: @tablet-width) {
-    padding: 0 110px;
+    padding: 0 120px;
     display: block;
   }
 
@@ -93,20 +97,22 @@
   margin: 0;
   margin-bottom: 25px;
   padding-top: 27px;
+  padding-left: 2px;
 
   @media (min-width: @tablet-width) {
     color: #000000;
     font-size: 60px;
     line-height: 60px;
     text-align: start;
-    width: 420px;
-    margin-bottom: 41px;
-    padding-top: 62px;
+    max-width: 417px;
+    margin-bottom: 42px;
+    padding-top: 59px;
+    padding-left: 0;
   }
 
   @media (min-width: @desktop-width) {
     margin-bottom: 40px;
-    padding-top: 114px;
+    padding-top: 107px;
   }
 }
 
@@ -115,10 +121,12 @@
   color: #ffffff;
   font-size: 14px;
   line-height: 14px;
-  text-align: center;
   text-transform: uppercase;
   font-weight: 400;
   margin-bottom: 29px;
+  max-width: 200px;
+  align-self: center;
+  background-color: rgba(104, 183, 56, 0.2);
 
   @media (min-width: @tablet-width) {
     color: #000000;
@@ -126,6 +134,8 @@
     line-height: 20px;
     text-align: start;
     margin-bottom: 49px;
+    max-width: 350px;
+    background-color: transparent;
   }
 
   @media (min-width: @desktop-width) {
@@ -134,23 +144,25 @@
 }
 
 .intro__image {
-  align-self: center;
-  width: 280px;
+  display: flex;
+  position: relative;
+  left: -15px;
+  width: 293px;
   height: 270px;
 
   @media (min-width: @tablet-width) {
     position: absolute;
     z-index: -1;
-    top: 260px;
-    left: 50%;
+    top: 258px;
+    left: 405px;
     transform: translateX(-50%);
-    width: 709px;
-    height: 609px;
+    width: 660px;
+    height: 602px;
   }
 
   @media (min-width: @desktop-width) {
-    left: 835px;
-    top: 32px;
+    left: 834px;
+    top: 25px;
     z-index: 2;
     width: 552px;
     height: 499px;
@@ -164,22 +176,24 @@
 
 .intro__button {
   .button();
-  padding: 8px 44px;
+  padding: 11px 44px;
   font-size: 14px;
   line-height: 18px;
   width: 100%;
   text-transform: uppercase;
   display: block;
+  margin-top: 3px;
 
   @media (min-width: @tablet-width) {
-    padding: 14px 26px;
+    padding: 17px 26px;
     font-size: 20px;
     line-height: 20px;
-    margin-bottom: 530px;
-    width: 244px;
+    margin-bottom: 506px;
+    margin-top: 0;
+    width: 245px;
   }
 
   @media (min-width: @desktop-width) {
-    margin-bottom: 217px;
+    margin-bottom: 197px;
   }
 }
